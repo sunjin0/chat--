@@ -1,0 +1,50 @@
+<view class="conrainer">
+  <van-cell-group>
+    <!-- 新的消息 -->
+    <van-cell clickable size="large" url="/pages/newMessages/index">
+      <view slot="title" class="cell">
+        <image src="/static/images/message.svg" style="background-color:rgb(228, 107, 27);" mode="widthFix" />
+        <text>系统消息</text>
+      </view>
+      <view slot="right-icon">
+        <van-icon wx:if="{{nums.b===undefined||nums.b===0}}"  name="arrow" />
+        <van-icon  wx:else="" dot name="arrow" />
+      </view>
+    </van-cell>
+    <!-- 新的朋友 -->
+    <van-cell clickable size="large" url="/pages/addFriends/index">
+      <view slot="title" class="cell">
+        <image src="/static/images/addUser.svg" mode="widthFix" />
+        <text>新的朋友</text>
+      </view>
+      <view slot="right-icon">
+        <van-icon wx:if="{{nums.b===undefined||nums.b===0}}"  name="arrow" />
+        <van-icon wx:else="" dot name="arrow" />
+      </view>
+    </van-cell>
+    <!-- 群聊 -->
+    <van-cell clickable size="large" url="/pages/groupChat/index">
+      <view slot="title" class="cell">
+        <image style="background-color: rgba(0, 128, 21, 0.747);" src="/static/images/group.svg" mode="widthFix" />
+        <text>群聊</text>
+      </view>
+    </van-cell>
+  </van-cell-group>
+  <!-- 用户列表 -->
+  <van-index-bar sticky="{{false}}">
+    <view wx:for="{{keys}}" wx:for-item="key" wx:key="index">
+      <van-index-anchor index="{{key}}" />
+      <van-cell-group wx:for="{{friendsList[key]}}" wx:for-item="item2" wx:key="index">
+        <van-cell url="/pages/userDetails/index?id={{item2.id}}&userId={{item2.userId}}" clickable data-key="{{key}}" data-index="{{index}}" size="large">
+          <view slot="title" class="cell">
+            <image style="width: 40px;padding: 0;background-color: transparent;" src="{{item2.avatar}}" mode="widthFix" />
+            <text>{{item2.name}}</text>
+          </view>
+        </van-cell>
+      </van-cell-group>
+    </view>
+    <view wx:if="{{keys.length===0}}" style="text-align: center;padding: 200px 0;color: gray;">暂时还没有好友</view>
+  </van-index-bar>
+  <view style="height: 84px;"></view>
+  <tabbar nums="{{nums}}" active="{{1}}"></tabbar>
+</view>

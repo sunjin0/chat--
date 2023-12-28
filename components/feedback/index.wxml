@@ -1,0 +1,16 @@
+<!--components/post/index.wxml-->
+<view class="container" class="back-color" hidden="{{hide}}">
+  <van-nav-bar custom-class="back-color" safe-area-inset-top="{{false}}" left-arrow title="举报与反馈" bind:click-left="colse" />
+  <van-cell-group  inset >
+    <van-cell custom-class="back-color">
+      <view slot="title" class="post-left">
+        <view >
+          <text style="color: grey;" >请输入您的举报或反馈内容：</text>
+          <textarea model:value="{{contact}}"   placeholder="请输入内容"></textarea>
+          <button type="primary" bindtap="handleSubmit">提交</button>
+        </view>
+
+      </view>
+    </van-cell>
+  </van-cell-group>
+</view>

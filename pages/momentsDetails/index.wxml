@@ -1,0 +1,105 @@
+<view class="container" style="background-color: #f7f8fa;">
+  <scroll-view style="background-color: #f7f8fa;">
+    <cell info="{{post}}" images="{{post.post.img}}" barIsShow="{{false}}" showText="show"></cell>
+    <view class="comment">
+      <view class="left-comment">
+        评论 {{post.comment}}
+      </view>
+      <van-divider />
+      <!-- 评论区 -->
+      <block wx:if="{{comments}}" wx:for="{{comments}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+      <!-- 父评论 -->
+        <view class="cell-head" data-username="{{item.username}}" data-toId="{{item.comment.userId}}" bindtap="onReply" data-commentId="{{item.comment.commentId}}">
+          <view class="left">
+            <image src="{{item.avatar}}" mode="widthFix" />
+            <view class="cell-head-title">
+              <view style="display: flex;">
+                {{item.username}}
+                <view wx:if="{{post.post.userId===item.reply.userId}}" style="padding:2px 8px;background-color: rgb(238, 7, 7);color: white;font-size: 12px;border-radius: 5px;margin-left: 10px;">{{"作者"}}
+                </view>
+              </view>
+              <text>{{item.comment.content}}</text>
+              <view class="cell-end-up">
+                <van-cell>
+                  <view class="cell-end">
+                    <view slot="title">
+                      <view class="cell-end-left">
+                        <view class="time">
+                          {{tools.formatTimestamp(item.comment.commentTime)}}
+                        </view>
+                        <view wx:if="{{item.reply.length!==0}}" catchtap="onCommentShow" data-index="{{index}}" class="ip">
+                          {{item.showReply?'更多评论 ':'收起'}}   <van-icon name="{{item.showReply?'arrow-down':'arrow-up'}}" />
+                        </view>
+                      </view>
+                    </view>
+                    <view slot="right-icon" class="right-icon" wx:if="{{true}}">
+                      <van-icon name="share-o" size="20"></van-icon>
+                      <van-icon name="comment-o" size="20"></van-icon>
+                      <van-icon name="good-job-o" size="20"></van-icon>
+                    </view>
+                  </view>
+                </van-cell>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- 子评论 -->
+        <view class="children" hidden="{{item.showReply}}">
+          <view class="cell-head cell-head-item" wx:for="{{item.reply}}" wx:key="index" data-username="{{item.username}}" data-toId="{{item.reply.userId}}" bindtap="onReply" data-commentId="{{item.reply.commentId}}">
+            <view class="left">
+              <image style="height: 25px;width: 25px;" src="{{item.avatar}}" mode="widthFix" />
+              <view class="cell-head-title">
+                <view style="display: flex;font-size: 12px;">
+                  {{item.username}}
+                  <view wx:if="{{post.post.userId===item.reply.userId}}" style="padding:2px 8px;background-color: rgb(238, 7, 7);color: white;font-size: 10px;border-radius: 5px;margin-left: 10px;">{{"作者"}}
+                  </view>
+                </view>
+                <text>{{item.reply.content}}</text>
+                <view class="cell-end-up">
+                  <van-cell>
+                    <view class="cell-end">
+                      <view slot="title">
+                        <view class="cell-end-left">
+                          <view class="time">
+                            {{tools.formatTimestamp(item.reply.createdTime)}}
+                          </view>
+                          <view class="ip">
+                            {{'IP:江西'}}
+                          </view>
+                        </view>
+                      </view>
+                      <view slot="right-icon" class="right-icon" wx:if="{{true}}">
+                        <van-icon name="share-o" size="20"></van-icon>
+                        <van-icon name="comment-o" size="20"></van-icon>
+                        <van-icon name="good-job-o" size="20"></van-icon>
+                      </view>
+                    </view>
+                  </van-cell>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <van-divider />
+      </block>
+      <view wx:if="{{!comments}}" style="color: grey;text-align: center;width: 100%;">什么都没有</view>
+    </view>
+  </scroll-view>
+  <view class="report" bindtap="report">
+  举报
+  </view>
+  <view style="height: 84px;"></view>
+  <!-- 输入框 -->
+  <van-tabbar>
+    <view class="send-message">
+      <view class="send-message-body">
+        <input model:value="{{message}}" placeholder="{{placeholder}}" style="padding: 10px;width: 300px;border-radius: 5px;" class="input" type="text" />
+        <van-icon wx:if="{{clear}}" class="delete" bind:click="onClearMessage" name="close" />
+        <button bindtap="onSendMessage" style="padding: 5px;margin-left: 10px;width: 80px;" type="primary" size="mini">发送</button>
+      </view>
+      <view>
+      </view>
+    </view>
+  </van-tabbar>
+</view>
+<wxs module="tools" src="/tools.wxs"></wxs>

@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="sign">
+    <image src="../../static/images/index.svg" mode="aspectFit" style="width: 130px; height: 100px;"></image>
+    <view class="title">大学生交流中心</view>
+  </view>
+
+  <view class="grouping-button">
+
+    <navigator class="index-button" open-type="navigate" url="../register/register">
+      新用户
+    </navigator>
+    <navigator class="index-button" open-type="navigate" url="../login/login">
+      登录
+    </navigator>
+  </view>
+</view>

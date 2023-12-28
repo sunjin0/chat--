@@ -1,0 +1,33 @@
+<view class="container">
+  <van-cell-group class="cell-group">
+    <view class="info">
+      <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+        <image class="avatar" src="{{avatarUrl}}"></image>
+      </button>
+      <input type="nickname" bindchange="onName" class="weui-input" placeholder="请输入昵称" />
+    </view>
+    <view class="radio">
+      <van-radio-group class="radio-group" value="{{ sex }}" direction="horizontal" bind:change="onRadioChange">
+        <van-radio name="1" checked-color="#07c160">男</van-radio>
+        <van-radio name="0" checked-color="red">女</van-radio>
+      </van-radio-group>
+    </view>
+
+    <van-field label="邮箱" model:value="{{email}}" size="large" type="email" placeholder="请输入邮箱" />
+    <van-field label="验证码" model:value="{{code}}" size="large" type="text" placeholder="请输入验证码" use-button-slot>
+      <block wx:if="{{isSMS}}">
+        <van-button slot="button" size="small" type="info" bindtap="sendSMS">
+          获取
+        </van-button>
+      </block>
+      <block wx:else="">
+        <van-button slot="button" size="small" type="info">
+          <van-count-down time="{{ time }}" format=" ss 秒" bind:finish="countFinish" />
+        </van-button>
+      </block>
+    </van-field>
+    <van-field label="密码" model:value="{{pwd}}" size="large" type="password" placeholder="请输入密码" />
+    <van-field label="确定密码" model:value="{{pwd2}}" size="large" type="password" placeholder="请再次输入密码" />
+  </van-cell-group>
+  <button class="determine" bindtap="submit">注册</button>
+</view>

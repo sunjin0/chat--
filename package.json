@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@vant/weapp": "^1.11.0",
+    "goeasy": "^2.8.6"
+  }
+}

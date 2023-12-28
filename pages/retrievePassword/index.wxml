@@ -1,0 +1,20 @@
+<view class="container">
+  <van-cell-group class="cell-group">
+    <van-field label="邮箱" model:value="{{email}}" size="large" type="email" placeholder="请输入邮箱" />
+    <van-field label="验证码" model:value="{{code}}" size="large" type="text" placeholder="请输入验证码" use-button-slot>
+      <block wx:if="{{isSMS}}">
+        <van-button slot="button" size="small" type="info" bindtap="sendSMS">
+          获取
+        </van-button>
+      </block>
+      <block wx:else="">
+        <van-button slot="button" size="small" type="info">
+          <van-count-down time="{{ time }}" format=" ss 秒" bind:finish="countFinish" />
+        </van-button>
+      </block>
+    </van-field>
+    <van-field label="密码" model:value="{{pwd}}" size="large" type="password" placeholder="请输入密码" />
+    <van-field label="确定密码" model:value="{{pwd2}}" size="large" type="password" placeholder="请再次输入密码" />
+  </van-cell-group>
+  <button class="determine" bindtap="submit">找回密码</button>
+</view>

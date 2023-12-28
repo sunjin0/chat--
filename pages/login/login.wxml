@@ -1,0 +1,50 @@
+<!--pages/login.wxml-->
+<view class="container">
+  <block wx:if="{{or}}">
+    <block wx:if="{{showLogin}}">
+      <!-- 电话验证 -->
+      <test-and-verify bind:hideEvent="onHideEvent"></test-and-verify>
+    </block>
+    <block wx:else>
+      <!-- 电话登录 -->
+      <login-form phone="{{phone}}"></login-form>
+    </block>
+  </block>
+  <block wx:else>
+    <!-- 邮箱登录 -->
+    <email-from></email-from>
+  </block>
+  <view class="other">
+    <!-- <view class="wx" bindtap="wxLogin">
+      <view class="wx-img">
+        <image style="width: 50rpx; height: 50rpx;" src="../../static/images/wx.png" mode="widthFix" />
+      </view>
+      <text> 微信登录</text>
+    </view> -->
+    <view class="others" bindtap="openModel">
+      <van-icon name="contact-o" size="40rpx" />
+      <text>其他登陆 </text>
+    </view>
+    <navigator open-type="navigate" class="rs" url="../register/register">
+      <van-icon name="plus" size="40rpx" />
+      <text> 注册</text>
+    </navigator>
+    <view class="more" bindtap="openModel2">
+      <van-icon name="ellipsis" size="40rpx" />
+      <text> 更多</text>
+    </view>
+  </view>
+  <van-action-sheet show="{{ show }}"  title="其他登陆" bind:close="onClose" round>
+    <view class="model-body">
+      <view bindtap="emailClick">邮箱登入</view>
+      <view bindtap="phoneClick">手机号登入</view>
+    </view>
+  </van-action-sheet>
+  <van-action-sheet show="{{ show2 }}" title="更多" bind:close="onClose2" round>
+    <view class="model-body">
+      <navigator open-type="navigate" url="../retrievePassword/index">找回密码</navigator>
+    </view>
+  </van-action-sheet>
+
+
+</view>

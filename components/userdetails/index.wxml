@@ -1,0 +1,22 @@
+<!--components/userdetails/index.wxml-->
+<view class="container" hidden="{{hide}}">
+  <van-nav-bar wx:if="{{!noSelf}}" custom-class="back-color" safe-area-inset-top="{{false}}" left-arrow title="详情" bind:click-left="colse" />
+  <view class="header">
+    <image src="{{userInfo.avatar}}" style="width: 80px; height: 80px; border-radius: 50%;" mode="aspectFit" />
+    <van-field size="large"  custom-class="back-color"  input-align="center" value="{{userInfo.username }}" disabled="{{noSelf}}" bind:change="onUserName" />
+  </view>
+  <van-cell-group inset title="详细信息">
+    <van-field size="large" label="ID :" value="{{userInfo.userId }}" disabled />
+    <van-field size="large" label="邮箱:" value="{{userInfo.email }}" disabled />
+    <van-field size="large" label="创建时间:" value="{{tools.formatTimestamp(userInfo.registrationDate)}}" disabled />
+    <van-field size="large" label="性别:" value="{{userInfo.sex==='1'?'男':'女' }}" disabled />
+    <van-field size="large"  label="个人介绍:" bind:change="onBoi" placeholder="请输入个人介绍" value="{{userInfo.bio }}" disabled="{{noSelf}}" />
+    <van-field size="large" label="兴趣爱好:" placeholder="{{!noSelf?'请输入兴趣爱好':'无'}}" value="{{userInfo.interests }}" disabled="{{noSelf}}" />
+  </van-cell-group>
+  <view style="padding: 20px  20px 0 20px;" hidden="{{noSelf}}">
+    <van-button disabled="{{isClick}}"  bind:click="onSubmit" round type="primary" block>提交</van-button>
+  </view>
+
+
+</view>
+<wxs module="tools" src="/tools.wxs"></wxs>

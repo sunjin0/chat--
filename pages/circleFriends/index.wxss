@@ -1,0 +1,77 @@
+/* pages/users/circleFriends/index.wxss */
+.van-tabs__nav {
+  background-color: #f7f8fa;
+}
+
+
+
+.label-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.label-item {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid rgba(128, 128, 128, 0.596);
+}
+.lable-top{
+  display: flex;
+
+}
+
+.label-item.selected {
+  background-color: #ff6767;
+  border: 1px solid #ff6767;
+}
+
+.label-text {
+  color: #333;
+}
+
+.label-item.selected .label-text {
+  color: #fff;
+}
+
+.confirm-btn {
+  border: 1px solid rgba(128, 128, 128, 0.671);
+  margin-top: 40rpx;
+  padding: 20rpx;
+  border-radius: 8px;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #ccc;
+  color: #fff;
+}
+
+.confirm-btn.active {
+  background-color: #ff6767;
+}
+
+.confirm-btn[disabled] {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.static{
+  position: fixed;
+  top: -2px;
+  z-index: 2;
+  left: 0;
+  right: 0;
+}
+
+.van-sticky{
+  position: fixed !important;
+  top: 46px;
+  z-index: 1;
+  left: 0;
+  right: 0;
+}
+.van-tabs__content{
+  margin-top: 84px;
+}
+

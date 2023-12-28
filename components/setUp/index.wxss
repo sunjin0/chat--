@@ -1,0 +1,26 @@
+/* components/post/index.wxss */
+.back-color{
+  background-color: #f7f8fa !important;
+}
+.post-left{
+  padding: 5px;
+  text-align: center;
+}
+.post-right{
+padding: 5px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-between
+}
+.post-info{
+  padding-top: 10px;
+  display: flex;
+}
+.post-info>view{
+  flex: 1;
+}
+.delete{
+  display: flex;
+  
+}

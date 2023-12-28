@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "cell":"../../components/cell/index",
+    "van-cell":"../../miniprogram/miniprogram_npm/@vant/weapp/cell/index",
+    "van-divider": "../../miniprogram/miniprogram_npm/@vant/weapp/divider/index",
+    "van-icon": "../../miniprogram/miniprogram_npm/@vant/weapp/icon/index",
+    "van-field": "../../miniprogram/miniprogram_npm/@vant/weapp/field/index",
+    "van-button":"../../miniprogram/miniprogram_npm/@vant/weapp/button/index",
+    "van-tabbar": "../../miniprogram/miniprogram_npm/@vant/weapp/tabbar/index",
+    "van-tabbar-item": "../../miniprogram/miniprogram_npm/@vant/weapp/tabbar-item/index"
+  },
+  "navigationBarTitleText": "正文"
+}

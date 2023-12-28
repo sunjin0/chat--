@@ -1,0 +1,16 @@
+<!--components/post/index.wxml-->
+<view class="container" hidden="{{hide}}">
+  <van-nav-bar custom-class="back-color" safe-area-inset-top="{{false}}" left-arrow title="设置" bind:click-left="colse" />
+  <van-cell-group inset>
+    <van-cell url="/pages/retrievePassword/index" is-link>
+      <view slot="title"  class="post-left">
+        <van-icon name="password-o" />修改密码
+      </view>
+    </van-cell>
+    <van-cell bind:click="onExit" is-link>
+      <view slot="title"  style="color: rgba(255, 0, 0, 0.822); font-weight: 500;" class="post-left">
+      退出登录
+      </view>
+    </van-cell>
+  </van-cell-group>
+</view>

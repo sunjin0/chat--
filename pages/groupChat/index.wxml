@@ -1,0 +1,52 @@
+<view class="container">
+  <view class="header">
+    <van-icon name="add-o" bind:click="onShowGroupChat" style="padding: 5px;" size="25" />
+    <van-icon bind:click="onAddChat" style="padding: 5px;" size="25" name="search" />
+  </view>
+  <!-- 群聊列表 -->
+  <van-cell-group title="群聊">
+    <!-- 群聊item -->
+    <van-cell-group wx:for="{{groupChats}}" wx:key="index">
+      <van-cell url="/pages/gChats/index?id={{item.groupChatId}}" size="large">
+        <view slot="title" class="cell">
+          <view class="cell-left">
+            <image src="/static/images/tx.webp" mode="aspectFit" style="width: 45px; height: 45px;" />
+            <text>{{item.groupName}}</text>
+          </view>
+        </view>
+        <view wx:if="{{item.creatorId===userId}}" slot="right-icon" style="display: flex;align-items: center;">
+          <button catchtap="onDeleteGroupChat" data-id="{{item.groupChatId}}" type="warn" size="mini">删除</button>
+        </view>
+        <view wx:else="" slot="right-icon" style="display: flex;align-items: center;">
+          <button type="warn" catchtap="onExitGroupChat" data-id="{{item.groupChatId}}" size="mini">退出</button>
+        </view>
+      </van-cell>
+    </van-cell-group>
+  </van-cell-group>
+  <van-popup show="{{ show }}" round position="bottom" custom-style="height: 60%" bind:close="onClose">
+    <van-search model:value="{{ value }}" input-align="center" placeholder="请输入群聊ID" bind:search="onSearch" />
+    <!-- 搜索结果 -->
+    <van-cell-group wx:if="{{result!==null}}">
+      <van-cell size="large">
+        <view solt="title" class="cell">
+          <view class="cell-left">
+            <image src="/static/images/tx.webp" mode="aspectFit" style="width: 45px; height: 45px;" />
+            <text>{{result.groupName}}</text>
+          </view>
+          <view> <button data-id="{{result.groupChatId}}" type="primary" size="mini" bindtap="onAddGroupChat">加入</button></view>
+        </view>
+      </van-cell>
+    </van-cell-group>
+  </van-popup>
+  <van-popup show="{{ show2 }}" round position="bottom" custom-style="height: 60%" bind:close="onClose">
+    <van-cell-group>
+      <van-field size="large" model:value="{{groupName}}" center clearable label="群聊名" placeholder="请输入群聊名" border="{{ false }}" use-button-slot>
+        <van-button bind:click="onCreateGroupChat" slot="button" size="small" type="primary">
+          创建群聊
+        </van-button>
+      </van-field>
+    </van-cell-group>
+
+
+  </van-popup>
+</view>

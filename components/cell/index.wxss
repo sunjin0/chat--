@@ -1,0 +1,117 @@
+/* pages/users/circleFriends/index.wxss */
+.van-tabs__nav {
+  background-color: #f7f8fa;
+}
+
+/* cell */
+.cell-model {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+
+.cell-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.cell-head image {
+  width: 45px;
+  height: 45px;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+}
+
+.cell-head-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.cell-head-title>text:first-child {
+  font-size: large;
+  color: tomato;
+}
+
+.cell-head-title>text:last-child {
+  font-size: small;
+  color: grey;
+}
+
+.right {
+  text-align: center;
+  color: tomato;
+  padding: 2px 12px;
+  border: tomato 1px solid;
+  border-radius: 50px;
+}
+
+.cell-body {
+  margin-top: 2%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cell-text {
+  display: -webkit-box;
+  /* 为了兼容 iOS */
+  -webkit-line-clamp: 4;
+  /* 设置行数 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+}
+
+.cell-imgs {
+  margin-top: 3%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-gap: 5px;
+  align-items: center;
+  justify-items: center;
+}
+
+.cell-imgs>image {
+  width: 105px;
+  height: 105px;
+}
+.cell-end{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+.cell-end-item{
+  color: grey;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.cell-end-item>text{
+  margin-left: 5px;
+}
+.tomato{
+  color: tomato;
+}
+.oneImg{
+  margin-top: 2%;
+  min-width: 400rpx;
+  max-width: 100%;
+}
+.show{
+  -webkit-line-clamp: 99;
+}

@@ -1,0 +1,29 @@
+.container{
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
+.agree-radio{
+  padding-top: 20rpx;
+  color: #7f7f7f;
+}
+checkbox .wx-checkbox-input{
+  width: 40rpx; 
+  height: 40rpx; 
+  border-radius: 50%;
+}
+.determine{
+  margin-top: 20rpx;
+  width: 90%;
+  color: white;
+  background-color: #1989fa;
+}
+.cell-group{
+  width: 90%;
+}
+.van-cell{
+  border-radius: 15rpx ;
+}

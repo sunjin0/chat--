@@ -1,0 +1,26 @@
+/* pages/addFriends/index.wxss */
+.title {
+  display: flex;
+  flex-direction: row;
+}
+.title image{
+  width: 45px;
+  height: 45px;
+  border-radius: 5px;
+  margin-right: 3%;
+}
+.van-cell-text{
+  width: 400rpx; /* 限定容器宽度 */  
+  display: -webkit-box; /* 为了兼容 iOS */  
+  -webkit-line-clamp: 1; /* 设置行数 */  
+  -webkit-box-orient: vertical;  
+  overflow: hidden;  
+  text-overflow: ellipsis;  
+}
+.right-btn{
+  display: flex;
+  align-items: center;
+}
+van-popup>.van-popup--bottom{
+  height: 50% !important;
+}

@@ -1,0 +1,41 @@
+// utils.wxs
+
+var formatTimestamp = function (timestamp) {
+  var now = getDate();
+  var date = getDate(timestamp);
+
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var today = getDate(now.getFullYear(), now.getMonth(), now.getDate());
+  var yesterday = getDate(today);
+  yesterday.setDate(today.getDate() - 1);
+
+  if (timestamp >= today.getTime()) {
+    // 如果是今天，则显示具体时间
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    return hours + ':' + minutes;
+  } else if (timestamp >= yesterday.getTime()) {
+    // 如果是昨天，则显示"昨天" + 具体时间
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    return '昨天 ' + hours + ':' + minutes;
+  } else if (timestamp >= today.getTime() - 6 * 24 * 3600 * 1000) {
+    // 如果是一周内，则显示星期几
+    var weekday = ['日', '一', '二', '三', '四', '五', '六'][date.getDay()];
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    return '星期' + weekday + ' ' + hours + ':' + minutes;
+  } else {
+    // 其他情况显示日期
+    return year + '-' + month + '-' + day+' '+hours+':'+minutes;
+  }
+}
+
+
+module.exports = {
+  formatTimestamp: formatTimestamp
+};

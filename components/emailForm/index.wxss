@@ -1,0 +1,22 @@
+/* components/loginForm/index.wxss */
+.login-form{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-around;
+}
+.cell-group>van-field>van-cell{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cell-group>van-field>van-cell>view{
+  width: 90% ;
+}
+.determine{
+  margin-top: 20rpx;
+  width: 90%;
+  color: white;
+  background-color: #1989fa;
+}

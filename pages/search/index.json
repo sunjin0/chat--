@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-search":"../../miniprogram/miniprogram_npm/@vant/weapp/search/index",
+    "van-cell": "../../miniprogram/miniprogram_npm/@vant/weapp/cell/index",
+    "van-cell-group": "../../miniprogram/miniprogram_npm/@vant/weapp/cell-group/index"
+  }
+}

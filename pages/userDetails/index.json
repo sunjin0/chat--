@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-cell": "../../miniprogram/miniprogram_npm/@vant/weapp/cell/index",
+    "van-cell-group": "../../miniprogram/miniprogram_npm/@vant/weapp/cell-group/index",
+    "van-switch": "../../miniprogram/miniprogram_npm/@vant/weapp/switch/index",
+    "van-popup": "../../miniprogram/miniprogram_npm/@vant/weapp/popup/index",
+    "details":"/components/userdetails/index"
+  },
+  "navigationBarBackgroundColor": "#FFFFFF"
+}

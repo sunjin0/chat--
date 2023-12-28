@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "tabbar":"/components/tabbar/index",
+    "van-index-bar": "../../miniprogram/miniprogram_npm/@vant/weapp/index-bar/index",
+    "van-index-anchor": "../../miniprogram/miniprogram_npm/@vant/weapp/index-anchor/index",
+    "van-cell-group": "../../miniprogram/miniprogram_npm/@vant/weapp/cell-group/index",
+    "van-cell":"../../miniprogram/miniprogram_npm/@vant/weapp/cell/index",
+    "van-icon": "../../miniprogram/miniprogram_npm/@vant/weapp/icon/index"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#efefef",
+  "backgroundTextStyle": "dark"
+}

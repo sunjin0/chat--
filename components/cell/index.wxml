@@ -1,0 +1,50 @@
+<van-cell-group>
+  <van-cell size="large" url="{{url}}">
+    <view slot="title" class="cell-model">
+      <view class="cell-head">
+        <view class="left">
+          <image src="{{info.avatar}}" mode="widthFix" />
+          <view class="cell-head-title">
+            <text>{{info.username}}</text>
+            <text style="line-height: 1;">
+              <view wx:if="{{info.followCount>1000}}">{{info.followCount+'人关注了Ta '}}</view>
+              {{tools.formatTimestamp(info.post.publishTime)}}
+            </text>
+          </view>
+        </view>
+        <view wx:if="{{selfId!=info.post.userId}}" class="right" catchtap="onAttention">
+          {{info.isFollow?'已关注':'关注'}}
+        </view>
+      </view>
+      <view class="cell-body">
+        <rich-text class="cell-text  {{showText}}">
+          {{info.post.content}}
+        </rich-text>
+        <view style="color: #1989fa;">#{{info.tag}}</view>
+        <view style="color: #1989fa; display: flex;align-items: center;">
+          <van-icon size="20" color="#1989fa" name="location-o" style="margin-right: 5px;" />{{info.post.address}}
+        </view>
+        <view class="{{images.length===1?'':'cell-imgs'}}">
+          <image class="{{images.length===1?'oneImg':''}}" wx:for="{{images}}" wx:key="index" src="{{item}}" mode="widthFix" data-img="{{item}}" catchtap="onShowImg" stop />
+        </view>
+      </view>
+    </view>
+  </van-cell>
+  <van-cell size="large" wx:if="{{barIsShow}}">
+    <view slot="title" class="cell-end">
+      <view class="cell-end-item">
+        <van-icon name="share-o" size="25" />
+        <text wx:if="{{info.share!=0}}">{{info.share}}</text>
+      </view>
+      <view class="cell-end-item">
+        <van-icon name="chat-o" size="25" />
+        <text wx:if="{{info.comment!=0}}">{{info.comment}}</text>
+      </view>
+      <view class="cell-end-item {{info.isLike?'tomato':''}}" bindtap="onCliklike">
+        <van-icon name="{{info.isLike?'good-job':'good-job-o'}}" size="25" />
+        <text wx:if="{{info.like!=0}}">{{info.like}}</text>
+      </view>
+    </view>
+  </van-cell>
+</van-cell-group>
+<wxs module="tools" src="/tools.wxs"></wxs>

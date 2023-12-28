@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/retrievePassword/index",
+    "pages/msg/index",
+    "pages/circleFriends/index",
+    "pages/firends/index",
+    "pages/my/index",
+    "pages/chats/index",
+    "pages/addFriends/index",
+    "pages/groupChat/index",
+    "pages/gChatDetails/index",
+    "pages/userDetails/index",
+    "pages/momentsDetails/index",
+    "pages/gChats/index",
+    "pages/newMessages/index",
+    "pages/search/index"
+  ],
+  "requiredPrivateInfos": [
+    "choosePoi",
+    "chooseLocation"
+  ],
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/msg/index",
+        "text": "信息"
+      },
+      {
+        "pagePath": "pages/firends/index",
+        "text": "好友"
+      },
+      {
+        "pagePath": "pages/circleFriends/index",
+        "text": "校园圈"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f7f8fa",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {},
+  "lazyCodeLoading": "requiredComponents"
+}

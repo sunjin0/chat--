@@ -1,0 +1,22 @@
+<!--components/myLikes/index.wxml-->
+<view class="container" hidden="{{hide}}">
+  <van-nav-bar custom-class="back-color" safe-area-inset-top="{{false}}" left-arrow title="我的点赞" bind:click-left="colse" bind:click-right="onOpenPost">
+  </van-nav-bar>
+  <van-cell-group inset title="我的点赞">
+    <van-cell clickable wx:for="{{items}}" url="/pages/momentsDetails/index?id={{item.like.postId}}"  wx:key="index">
+      <view slot="title" class="post-left">
+        <view class="post-left-title">
+          {{item.content}}
+        </view>
+      </view>
+      <view slot="right-icon" class="post-right">
+        <view class="post-right-time">
+          {{tools.formatTimestamp(item.like.likeTime)}}
+        </view>
+        <van-icon size="20" name="arrow" />
+        
+      </view>
+    </van-cell>
+  </van-cell-group>
+</view>
+<wxs module="tools" src="/tools.wxs"></wxs>

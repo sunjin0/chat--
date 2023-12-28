@@ -1,0 +1,69 @@
+<view class="container" hidden="{{mainPage}}">
+  <!-- 头部 -->
+  <view class="header">
+    <image src="{{userInfo.avatar}}" style="height: 45px; width: 45px; border-radius: 8px;margin-right: 10px;" mode="aspectFit" />
+    <view class="header-title">
+      <view class="username">
+        {{userInfo.username}}
+      </view>
+      <view style="color: gray; font-size: 12px;padding: 5px;">
+        ID：{{userInfo.userId}}
+      </view>
+    </view>
+  </view>
+  <!-- 一段 -->
+  <van-cell-group inset custom-class="box-shadow">
+    <!-- 详细信息 -->
+    <van-cell size="large" bind:click="onClick" data-index="{{0}}" custom-class="me-cell" is-link>
+      <view slot="title" class="me-cell">
+        <image style="width: 40px; height: 40px;" src="/static/images/woxinxi.png" mode="aspectFit" />
+        <view class="van-cell-text">详细信息</view>
+      </view>
+    </van-cell>
+    <!-- 我的发布 -->
+    <van-cell size="large" bind:click="onClick" data-index="{{1}}" custom-class="me-cell" is-link>
+      <view slot="title" class="me-cell">
+        <image style="width: 40px; height: 40px;" src="/static/images/wodefabu.png" mode="aspectFit" />
+        <view class="van-cell-text">我的发布</view>
+      </view>
+    </van-cell>
+    <!-- 浏览历史 -->
+    <van-cell size="large" bind:click="onClick" data-index="{{2}}" custom-class="me-cell" is-link>
+      <view slot="title" class="me-cell">
+        <image style="width: 40px; height: 40px;" src="/static/images/zuijinliulan.png" mode="aspectFit" />
+        <view class="van-cell-text">浏览历史</view>
+      </view>
+    </van-cell>
+    <!-- 我的点赞 -->
+    <van-cell size="large" bind:click="onClick" data-index="{{3}}" custom-class="me-cell" is-link>
+      <view slot="title" class="me-cell">
+        <image style="width: 40px; height: 40px;" src="/static/images/wodedianzan.png" mode="aspectFit" />
+        <view class="van-cell-text">我的点赞</view>
+      </view>
+    </van-cell>
+  </van-cell-group>
+  <!-- 二段 -->
+  <van-cell-group inset style="padding-top: 20px;" custom-class="box-shadow">
+    <!-- 帮助中心 -->
+    <van-cell size="large" bind:click="onClick" data-index="{{4}}" custom-class="me-cell" is-link>
+      <view slot="title" class="me-cell">
+        <image style="width: 40px; height: 40px;" src="/static/images/bangzhuzhongxin.png" mode="aspectFit" />
+        <view class="van-cell-text">举报与反馈</view>
+      </view>
+    </van-cell>
+    <!-- 设置 -->
+    <van-cell size="large" bind:click="onClick" data-index="{{5}}" custom-class="me-cell" is-link>
+      <view slot="title" class="me-cell">
+        <image style="width: 40px; height: 40px;" src="/static/images/shezhi.png" mode="aspectFit" />
+        <view class="van-cell-text">设置</view>
+      </view>
+    </van-cell>
+  </van-cell-group>
+  <tabbar nums="{{nums}}" active="{{3}}"></tabbar>
+</view>
+<details bind:colse="onClose" hide="{{components[0]}}"></details>
+<post bind:colse="onClose" hide="{{components[1]}}"></post>
+<browsing-history bind:colse="onClose" hide="{{components[2]}}"></browsing-history>
+<my-likes bind:colse="onClose" hide="{{components[3]}}"></my-likes>
+<feel-back bind:colse="onClose" hide="{{components[4]}}"></feel-back>
+<set-up bind:colse="onClose" hide="{{components[5]}}"></set-up>

@@ -1,0 +1,129 @@
+/* pages/momentsDetails/index.wxss */
+.container{
+  position: relative;
+}
+.comment {
+  margin-top: 10px;
+  padding: 12px 16px;
+  background-color: white;
+}
+
+.left-comment {
+  font-weight: bold;
+  position: sticky;
+}
+
+.left-comment::before {
+  position: absolute;
+  bottom: -6px;
+  left: 3px;
+  content: " ";
+  width: 50px;
+  height: 4px;
+  background-color: tomato;
+  border-radius: 5px;
+}
+
+.cell-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  align-content: center;
+  justify-content: space-between;
+}
+.cell-head-item{
+ width: 85%;
+ padding: 0 0 0 15%;
+}
+
+.cell-head image {
+  flex-shrink: 0; /* 防止图片被压缩 */  
+  width: 45px;
+  height: 45px;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.left {
+ 
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.cell-head-title {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.cell-head-title>text:first-child {
+  font-size: 16px;
+  color: #333333;
+}
+
+.cell-head-title>text:nth-child(2) {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #333333;
+}
+.cell-end{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+.cell-end-up .van-cell{
+  padding: 0 ;
+}
+.right-icon>van-icon{
+  padding: 10px;
+}
+.cell-end-left{
+  display: flex;
+  flex-direction: row;
+}
+.ip{
+  margin-left: 15px;
+}
+/* 输入框 */
+.send-message{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding:0 10px;
+}
+.van-tabbar {
+  background-color: #f7f8fa !important;
+}
+.input{
+  background-color: white;
+}
+.send-message-body{
+  display: flex;
+  justify-content: space-between;
+}
+.delete{
+  position: absolute;
+  z-index: 9;
+  right: 26%;
+  top: 23%;
+}
+.report{
+  z-index: 99;
+  position: fixed;
+  top: 520px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  border: 1px #999aaa solid;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50px;
+  color: #999aaa;
+  cursor: pointer;
+  box-shadow: 0 0 10px 2px rgba(0,0,0,.06);
+}

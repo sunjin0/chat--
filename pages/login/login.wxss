@@ -1,0 +1,61 @@
+/* pages/login.wxss */
+
+.container{
+  height: 100%;
+  width: 100%;
+  padding-top: 30%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
+
+.other{
+  display: flex;
+  width: 90%;
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: 100rpx;
+  text-align: center;
+}
+.other text{
+  color: #3a3434c4;
+}
+.other van-icon , .wx>view{
+  display: flex;
+  flex-direction: column;
+  width: 100rpx;
+  height: 100rpx;
+  align-items: center;
+  align-content: center;
+  align-content: space-between;
+  border-radius: 50%;
+  border: 1rpx solid rgba(128, 128, 128, 0.562);
+  margin-bottom: 10rpx;
+}
+.wx>view>image{
+  margin-top: 25%;
+}
+.wx,.others,.rs,.more{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.model-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+.model-body>navigator ,.model-body>view{
+  margin-bottom: 50rpx;
+  box-shadow: 0px -1px 12px #ebedf0;
+  color: #3a3434ec;
+  width: 90%;
+  height: 60rpx;
+  border-radius: 20rpx;
+  line-height: 60rpx;
+  border: 1px solid #ebedf0;
+  padding: 20rpx;
+  background-color: white;
+}

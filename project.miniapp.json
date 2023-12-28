@@ -1,0 +1,34 @@
+{
+	"name": "default",
+	"icon": "",
+	"mini-android": {
+		"useProjectTemplate": true,
+		"projectPath": "miniapp/android",
+		"archivePath": "app/src/main/assets/SaaA_embed",
+		"buildArchiveEverytime": true,
+		"runArgs": {
+			"mainActivity": ".ui.MainActivity",
+			"variant": "Arm64Debug"
+		},
+		"buildArgs": {
+			"variant": "Arm64Release"
+		}
+	},
+	"mini-ios": {
+		"useProjectTemplate": true,
+		"projectPath": "miniapp/ios",
+		"archivePath": "demo/Kernel/MiniApp.bundle/Saaa",
+		"buildArchiveEverytime": true,
+		"runArgs": {
+			"scheme": "miniapp-demo"
+		},
+		"buildArgs": {
+			"scheme": "miniapp-demo",
+			"exportOptionPlistPath": ""
+		}
+	},
+	"mini-plugin": {
+		"android": [],
+		"ios": []
+	}
+}

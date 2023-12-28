@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "van-image": "../../miniprogram/miniprogram_npm/@vant/weapp/image/index"
+  }
+}

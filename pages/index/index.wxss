@@ -1,0 +1,43 @@
+/**index.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grouping-button {
+  width: 100%;
+  display: flex;
+  position: fixed;
+  bottom: 5em;
+  justify-content: space-around;
+}
+
+.index-button {
+  padding: 0.5rem;
+  width: 40%;
+  border-radius: 5px;
+  background-color: #1989fa;
+  border: 1px solid #1989fa;
+  color: white;
+  text-align: center;
+}
+
+.index-button:first-child {
+  border: 1px solid rgba(128, 128, 128, 0.527);
+  background-color: #f7f8fa;
+  color: black;
+}
+
+.sign {
+  position: absolute;
+  top: 25%;
+}
+
+.title {
+  padding-top: 0.2rem;
+  padding-left: 0.5rem;
+  color: gray;
+  letter-spacing: 0.2rem;
+}

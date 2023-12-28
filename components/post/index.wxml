@@ -1,0 +1,74 @@
+<!--components/post/index.wxml-->
+<view class="container" hidden="{{hide}}">
+  <van-nav-bar custom-class="back-color" safe-area-inset-top="{{false}}" left-arrow title="我的发布" bind:click-left="colse" bind:click-right="onOpenPost">
+    <view slot="right">
+      <van-icon size="20" color="#1989fa" name="add-o" />
+    </view>
+  </van-nav-bar>
+  <van-cell-group inset title="我的发布">
+    <van-cell wx:for="{{items}}" wx:key="index">
+      <view slot="title" class="post-left">
+        <view class="post-left-title">
+          {{item.post.content}}
+        </view>
+        <view class="post-info">
+          <view>
+            浏览量:{{item.historys}}
+          </view>
+          <view>
+            点赞:{{item.like}}
+          </view>
+          <view>
+            评论:{{item.comment}}
+          </view>
+        </view>
+      </view>
+      <view slot="right-icon" class="post-right">
+        <view class="post-right-time">
+          {{tools.formatTimestamp(item.post.publishTime)}}
+        </view>
+        <view class="delete">
+          <button data-id="{{item.post.postId}}" bindtap="onDeleteById" type="warn" size="mini">删除</button>
+        </view>
+      </view>
+    </van-cell>
+  </van-cell-group>
+</view>
+<view class="children" hidden="{{isChildrenShow}}">
+  <van-nav-bar custom-class="back-color" safe-area-inset-top="{{false}}" left-arrow title="编辑" bind:click-left="onChildrenColse">
+    <view slot="right" style="display: flex; align-items: center;">
+      <button bindtap="submit" type="primary" size="mini">发布</button>
+    </view>
+  </van-nav-bar>
+  <view style="padding: 30px 20px;">
+    <textarea model:value="{{content}}" style="width: 100%; color: #4d4d4d; border:0 ;" auto-height placeholder="记录每一刻" />
+    <van-uploader bind:delete="onDelete" max-count="9" file-list="{{ fileList }}" bind:after-read="afterRead" />
+  </view>
+  <van-cell-group inset>
+    <van-cell bind:click="onChooseLocation" clickable arrow-direction="down">
+      <view solt="title" style="text-align: left;display: flex; align-items: center;">
+        <van-icon size="20" color="{{address!==''?'green':'grey'}}" name="location-o" style="margin-right: 5px;" />
+        <view wx:if="{{address===''}}">
+          我的位置
+        </view>
+        <view style="color: green;margin-left: 10px;"> {{address}}</view>
+      </view>
+      <van-icon slot="right-icon" size="20" name="arrow-down" />
+    </van-cell>
+    <van-cell bind:click="onShowTag" clickable arrow-direction="down">
+      <view solt="title" style="text-align: left;display: flex; align-items: center;">
+
+        <van-icon size="20" color="{{tag!==''?'green':'grey'}}" name="flag-o" style="margin-right: 5px;" />
+        <view wx:if="{{tag===''}}">
+          类型
+        </view>
+        <button type="primary" style="margin: 0;margin-left: 5px;" size="mini">{{tag}}</button>
+      </view>
+      <van-icon slot="right-icon" size="20" name="{{!tagShow?'arrow-down':'close'}}" />
+    </van-cell>
+  </van-cell-group>
+
+  <van-picker confirm-button-text="" cancel-button-text="" wx:if="{{tagShow}}" show-toolbar title="帖子类型" custom-class="tag-select" columns="{{ columns }}" bind:change="onChange" />
+
+</view>
+<wxs module="tools" src="/tools.wxs"></wxs>

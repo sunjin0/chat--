@@ -1,0 +1,96 @@
+/* chat.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.message-list {
+  overflow-y: auto;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 10rpx;
+
+}
+
+.message-content {
+  font-family: Arial, sans-serif;
+  /* 使用 Arial 字体 */
+  padding: 15rpx;
+  max-width: 60%;
+  letter-spacing: 1px;
+  /* 字符间距为 2px */
+  text-align: justify;
+  /* 文本两端对齐 */
+  line-height: 1.5;
+  /* 行高为字体大小的 1.5 倍 */
+  font-size: 16px;
+  /* 字体大小为 16px */
+}
+
+.message-time {
+  font-size: 12px;
+  /* color: grey; */
+  text-align: center;
+}
+
+.message-input {
+  display: flex;
+  align-items: center;
+  padding: 20px 30px;
+  align-content: center;
+  width: 88%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+}
+
+.input {
+  width: 70%;
+  height: 30px;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.send-button {
+  background-color: #007aff;
+  color: #fff;
+  border: none;
+  margin: 0;
+  width: 100px;
+  border-radius: 10%;
+  margin-left: 15px;
+}
+
+.c-left {
+  color: black;
+  background-color: white;
+  border-radius: 15rpx;
+  margin-left: 5rpx;
+}
+
+.c-right {
+  background-color: #007bffce;
+  color: white;
+  border-radius: 15rpx;
+  margin-right: 5rpx;
+}
+
+.m-left,
+.m-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  align-items: flex-start
+}
+
+.m-right {
+  justify-content: flex-end;
+}

@@ -1,0 +1,51 @@
+/* components/browsingHistory/index.wxss */
+.back-color {
+  background-color: #f7f8fa !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3rem !important;
+}
+
+.post-left {
+  padding: 5px;
+}
+
+.post-right {
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.post-info {
+  padding-top: 10px;
+  display: flex;
+}
+
+.post-info>view {
+  flex: 1;
+}
+
+.delete {
+  display: flex;
+
+}
+
+.tag-select {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.post-left-title {
+  width: 200px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+}

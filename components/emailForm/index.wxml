@@ -1,0 +1,7 @@
+<view class="login-form">
+  <van-cell-group class="cell-group">
+    <van-field label="邮箱" model:value="{{email}}" size="large" type="email" placeholder="请输入邮箱" />
+    <van-field label="密码" model:value="{{pwd}}" bind:change="onChange" size="large" type="password" placeholder="请输入密码" />
+  </van-cell-group>
+  <button class="determine" bindtap="submit">登录</button>
+</view>

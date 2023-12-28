@@ -1,0 +1,14 @@
+<!--components/login/login.wxml-->
+<view class="container">
+  <van-cell-group class="cell-group">
+    <van-field label="+86" value="{{phone}}"  bind:change="onChange" size="large" type="idcard" placeholder="请输入手机号" />
+  </van-cell-group>
+  <label class="radio-label agree-radio">
+    <checkbox-group bindchange="checkboxChange">
+      <checkbox value="1" />
+      已阅读并同意服务协议
+    </checkbox-group>
+  </label>
+
+  <button class="determine" bindtap="submit">同意并继续</button>
+</view>

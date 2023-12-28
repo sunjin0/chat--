@@ -1,0 +1,7 @@
+<van-cell-group inset title="群聊信息">
+  <van-cell title="群聊ID" value="{{groupChatInfo.groupChatId}}" />
+  <van-cell title="群聊名" value="{{groupChatInfo.groupName}}"  />
+  <van-cell title="创建人" value="{{groupChatInfo.creatorId}}"  />
+  <van-cell title="创建时间" value="{{groupChatInfo.createTime}}"  />
+</van-cell-group>
+

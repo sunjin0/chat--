@@ -1,0 +1,46 @@
+<!--pages/gChats/index.wxml-->
+
+<view class="container">
+  <van-nav-bar safe-area-inset-top="{{false}}">
+    <view slot="right">
+      <van-icon bind:click="onGchatDetails" size="25" name="wap-nav" />
+    </view>
+  </van-nav-bar>
+
+  <scroll-view scroll-y id="scroll" scroll-into-view="{{'A'+messages.length}}" style="height: {{height+'px'}};" class="message-list">
+    <block wx:for="{{messages}}" wx:key="index">
+      <!-- 好友信息 -->
+      <view class="message" id="{{'A'+(index+1)}}" wx:if="{{item.senderId !==0}}">
+        <view class="message-time">{{tools.formatTimestamp(item.sendTime)}}</view>
+        <view class="m-left">
+          <view bindtap="onDetails" data-id="{{item.userId}}">
+            <van-image round width="50px" height="50px" src="{{item.avatar}}" />
+          </view>
+          <view style="display: flex; flex-direction: column;max-width: 100%;">
+            <view style="color: gray;">{{item.nickname}}</view>
+            <view class="message-content c-left">{{item.content}}</view>
+          </view>
+        </view>
+      </view>
+      <!-- 自己信息 -->
+      <view class="message" id="{{'A'+(index+1)}}" wx:else>
+        <view class="message-time">{{tools.formatTimestamp(item.sendTime)}}</view>
+        <view class="m-right">
+          <view style="display: flex; flex-direction: column; align-items: flex-end; width: 100%;">
+            <view style="color: gray;">{{item.nickname}}</view>
+            <view class="message-content c-right">{{item.content}}</view>
+          </view>
+          <view data-id="{{item.id}}">
+            <van-image round width="50px" height="50px" src="{{avatarUrl}}" />
+          </view>
+        </view>
+      </view>
+    </block>
+    <view style="height: 86px;"></view>
+  </scroll-view>
+  <view class="message-input">
+    <input class="input" model:value="{{inputValue}}" type="text" placeholder="请输入消息" />
+    <button class="send-button" bindtap="onSend">发送</button>
+  </view>
+</view>
+<wxs module="tools" src="/tools.wxs"></wxs>

@@ -1,0 +1,76 @@
+/* pages/register/register.wxss */
+.container{
+  margin-top: 40%;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-around;
+}
+
+.cell-group>van-radio-group{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  align-content: space-around;
+}
+.cell-group>van-field>van-cell{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cell-group>van-field>van-cell>view{
+  width: 90% ;
+}
+.determine{
+  margin-top: 20rpx;
+  width: 90%;
+  color: white;
+  background-color: #1989fa;
+}
+.radio{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+.radio-group{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90% ;
+  padding: 30rpx 0;
+  background-color: white;
+}
+.info{
+  margin-top: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.avatar{
+  width: 80px;
+  height: 80px;
+}
+.avatar-wrapper{
+  margin: 0;
+  padding: 0;
+  height: auto;
+  height: 80px;
+}
+.weui-input{
+  margin-top: 5%;
+}
+.info-submit{
+  margin:0;
+  margin-top: 5%;
+  background-color: #3494f5;
+  color: white;
+  padding: 0rpx 100rpx;
+}
+.cell-group .van-count-down{
+  color:white
+}

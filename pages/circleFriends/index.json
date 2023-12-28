@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "tabbar": "/components/tabbar/index",
+    "van-tab": "../../miniprogram/miniprogram_npm/@vant/weapp/tab/index",
+    "van-tabs": "../../miniprogram/miniprogram_npm/@vant/weapp/tabs/index",
+    "cell":"/components/cell/index",
+    "van-search": "../../miniprogram/miniprogram_npm/@vant/weapp/search/index"
+  },
+  "navigationBarTitleText": "校园圈"
+}

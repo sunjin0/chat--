@@ -1,0 +1,63 @@
+/* pages/users/index.wxss */
+.tag {
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-top: 12rpx;
+  font-size: 10px;
+  text-align: center;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+}
+
+.img {
+  width: 50rpx;
+  padding: 5rpx;
+  margin-left: 20rpx;
+  border-radius: 50%;
+}
+
+.name {
+  padding-left: 20rpx;
+}
+
+.info {
+  width: 100%;
+  height: 100%;
+}
+
+.buttons {
+  display: flex;
+  height: 100%;
+}
+
+.right {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  color: rgb(255, 255, 255);
+  background-color: #f44;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+}
+.end{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end
+}
+.userNull{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40%;
+}
+.userNull>text{
+  color: gray;
+}

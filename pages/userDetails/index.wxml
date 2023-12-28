@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="head">
+    <image src="{{userInfo.avatar}}" mode="widthFix" bindtap="onShowImg" />
+    <view class="title">
+      <text style="font-size: larger;font-weight: bold;color: black;">{{ userInfo.
+        temporary}}</text>
+      <text>昵称：{{ userInfo.username}}</text>
+      <text>ID：{{ userInfo.userId}}</text>
+      <text>学校：{{ userInfo.school?"":"无"}}</text>
+    </view>
+  </view>
+  <van-cell-group>
+    <van-cell title="详细信息" bind:click="showPopup" size="large" is-link>
+    </van-cell>
+    <van-cell wx:if="{{notFriend}}" title="设置备注" size="large" is-link bind:click="onNotes" />
+    <van-cell wx:if="{{notFriend}}" bind:click="onDel"  size="large" clickable>
+      <view slot="title" style="text-align: center;color: #e71919;font-weight: 400;">
+        删除好友
+      </view>
+    </van-cell>
+    <van-cell wx:if="{{notFriend}}"  size="large" link-type="redirectTo" url="/pages/chats/index?id={{toId}}" clickable>
+      <view slot="title" style="text-align: center;color: #2183e6;font-weight: 400;">
+        发信息
+      </view>
+    </van-cell>
+
+  </van-cell-group>
+
+</view>
+<van-popup  closeable show="{{ show }}" round position="bottom" custom-style="height: 90%" bind:close="onClose">
+ <details hide="{{false}}" noSelf="{{true}}" userId="{{userInfo.userId}}"></details>
+</van-popup>

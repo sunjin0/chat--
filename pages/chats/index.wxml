@@ -1,0 +1,34 @@
+<!-- chat.wxml -->
+<view class="container">
+  <scroll-view scroll-y id="scroll" scroll-into-view="{{'A'+messages.length}}" 	bindscrolltoupper="onScroll" style="height: {{height+'px'}};"  class="message-list" >
+  <view wx:if="{{once}}" bindtap="onOnceData" style="text-align: center;color: gray;font-size: 12px;line-height: 2;">点击加载历史记录</view>
+    <block wx:for="{{messages}}" wx:key="index">
+      <!-- 好友信息 -->
+      <view class="message" id="{{'A'+(index+1)}}"  wx:if="{{item.senderId !==0}}">
+        <view class="message-time">{{tools.formatTimestamp(item.sendTime)}}</view>
+        <view class="m-left">
+          <view data-id="{{item.id}}"  bindtap="onDetails">
+            <van-image  round width="50px" height="50px" src="{{toUser.avatar}}" />
+          </view>
+          <view class="message-content c-left">{{item.content}}</view>
+        </view>
+      </view>
+      <!-- 自己信息 -->
+      <view class="message" id="{{'A'+(index+1)}}" wx:else>
+        <view class="message-time">{{tools.formatTimestamp(item.sendTime)}}</view>
+        <view class="m-right">
+          <view class="message-content c-right">{{item.content}}</view>
+          <view data-id="{{item.id}}"  bindtap="onChat">
+            <van-image  round width="50px" height="50px" src="{{avatarUrl}}" />
+          </view>
+        </view>
+      </view>
+    </block>
+    <view style="height: 86px;"></view>
+  </scroll-view>
+  <view class="message-input">
+    <input class="input" model:value="{{inputValue}}" type="text" placeholder="请输入消息" />
+    <button class="send-button" bindtap="onSend">发送</button>
+  </view>
+</view>
+<wxs module="tools" src="/tools.wxs"></wxs>

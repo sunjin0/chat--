@@ -1,0 +1,20 @@
+/* pages/users/firends/index.wxss */
+.cell{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.cell>image{
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(255, 136, 0, 0.911);
+}
+.cell>text{
+  margin-left: 5%;
+}
+.cell>.userImg{
+  padding: 0;
+  width: 40px;
+}

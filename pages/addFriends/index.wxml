@@ -1,0 +1,53 @@
+<view class="container">
+  <!-- 查询页面按钮 -->
+  <van-cell-group inset>
+    <van-cell size="large" is-link clickable value="添加好友" arrow-direction="down" bindtap="OnShowModel" />
+  </van-cell-group>
+  <!-- 好友请求列表 -->
+  <van-cell-group title="好友请求">
+    <van-cell-group wx:for="{{friendRequestList}}" wx:key="index">
+      <van-cell size="large" url="/pages/userDetails/index?userId={{item.id}}&notFriend={{''}}">
+        <view slot="title">
+          <view class="title">
+            <image fit="cover" lazy-load src="{{item.avatar}}" />
+            <view class="title-body">
+              <view class="van-cell-text">{{item.username}}</view>
+              <view style="font-size: 13px;color: gray;">{{item.message}}</view>
+            </view>
+          </view>
+        </view>
+        <!-- 同意按钮 -->
+        <!-- 其他人加我为好友请求 -->
+        <view wx:if="{{item.me!=='me'}}" class="right-btn" slot="right-icon" data-id="{{item.id}}" catchtap="OnAgree">
+          <button type="{{item.state===0?'primary':'default'}}" disabled="{{item.state===1}}" size="mini">{{item.state===0?"同意":"已同意"}}</button>
+        </view>
+        <view wx:else="" class="right-btn" slot="right-icon" data-id="{{item.id}}" catchtap="OnAgree">
+          <button type="default" disabled="{{true}}" size="mini">{{item.state===0?"已发送":"已同意"}}</button>
+        </view>
+      </van-cell>
+    </van-cell-group>
+  </van-cell-group>
+  <!-- 好友查询Model -->
+  <van-popup show="{{ show }}" round position="bottom" custom-style="height: 20%" bind:close="onClose">
+    <van-search shape="round" bind:search="OnSearch" value="{{ value }}" input-align="center" placeholder="请输入ID或邮箱" />
+    <!-- 查询结果 -->
+    <van-cell wx:if="{{result!==null}}" size="large" url="/pages/userDetails/index?userId={{result.id}}&notFriend={{''}}">
+      <view slot="title">
+        <view class="title">
+          <image fit="cover" lazy-load src="{{result.avatar}}" />
+          <view class="title-body">
+            <view class="van-cell-text">{{result.username}}</view>
+            <view style="font-size: 13px;color: gray;"></view>
+          </view>
+        </view>
+      </view>
+      <view class="right-btn" slot="right-icon">
+        <button type="primary" size="mini" data-id="{{result.id}}" catchtap="onAdd">{{addState}}</button>
+      </view>
+    </van-cell>
+    <van-cell wx:else="">
+      <view slot="title" style="text-align: center;color: gray;">什么都没有</view>
+    </van-cell>
+
+  </van-popup>
+</view>

@@ -1,0 +1,10 @@
+<!--pages/newMessages/index.wxml-->
+<van-cell-group  inset title="消息通知">
+  <van-cell  wx:for="{{replys}}" wx:key="index"  clickable title="{{item.name}}" label="{{item.text}}" size="large">
+    <view slot="right-icon" style="display: flex; align-items: center;">
+      {{tools.formatTimestamp(item.time)}}
+    </view>
+  </van-cell>
+</van-cell-group>
+<view wx:if="{{replys.length===0}}" style="text-align: center;color: gray;width: 100%;padding: 10px;">什么都没有</view>
+<wxs module="tools" src="/tools.wxs"></wxs>

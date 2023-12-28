@@ -1,0 +1,38 @@
+/* components/post/index.wxss */
+.back-color{
+  background-color: #f7f8fa !important;
+}
+
+.post-right{
+padding: 5px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-between
+}
+.post-info{
+  padding-top: 10px;
+  display: flex;
+}
+.post-info>view{
+  flex: 1;
+}
+.delete{
+  display: flex;
+  
+}
+.post-left {
+  padding: 20rpx;
+}
+
+textarea {
+  width: 93%;
+  height: 190rpx;
+  padding: 10px;
+  margin: 20px 0 20px 0;
+  border: 1px rgba(128, 128, 128, 0.589) solid;
+  border-radius: 5px;
+}
+.back-color {
+  background-color: #f7f8fa !important;
+}

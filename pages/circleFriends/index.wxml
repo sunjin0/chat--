@@ -1,0 +1,40 @@
+<scroll-view class="container" wx:if="{{isHaveInterest}}">
+  <!-- 搜索 -->
+  <van-search custom-class="static" bindtap="onToSearch" placeholder="请输入搜索关键词" />
+  <!-- 关注与热门 -->
+  <view class="head">
+    <van-tabs sticky animated active="{{ active }}" swipeable bind:change="onChange">
+      <van-tab title="关注">
+        <scroll-view bindscrolltolower="onBottom2" scroll-with-animation="{{true}}" scroll-y style="height: {{height2}}px;">
+          <cell wx:for="{{followPosts}}" info="{{item}}" images="{{item.post.img}}" url="/pages/momentsDetails/index?id={{item.post.postId}}" wx:key="index"></cell>
+        </scroll-view>
+      </van-tab>
+      <van-tab title="热门">
+        <scroll-view bindscrolltolower="onBottom" scroll-with-animation="{{true}}" scroll-y style="height: {{height}}px;">
+          <cell bind:follow="onFollow" wx:for="{{posts}}" info="{{item}}" images="{{item.post.img}}" url="/pages/momentsDetails/index?id={{item.post.postId}}" wx:key="index"></cell>
+        </scroll-view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</scroll-view>
+<view style=" padding: 25% 20px;" wx:else="">
+  <view class="lable-top">
+    <view style="font-size: xx-large; width: 60%;">
+      请选择你对那些方面感兴趣
+      <view style="font-size:small; color: gray;padding: 10px 0;">
+        已便更精确的推荐内容
+      </view>
+    </view>
+    <image src="/static/images/tx.webp" style="height: 150rpx;" mode="aspectFit" />
+  </view>
+  <view class="label-container">
+    <view wx:for="{{labels}}" wx:key="index" class="label-item {{item.selected ? 'selected' : ''}}" data-index="{{index}}" bindtap="onLabelTap">
+      <text class="label-text">{{item.name}}</text>
+    </view>
+  </view>
+  <view class="confirm-btn {{canConfirm ? 'active' : ''}}" bindtap="onConfirmTap" disabled="{{!canConfirm}}">
+    确定
+  </view>
+</view>
+<view style="height: 94px;"></view>
+<tabbar nums="{{nums}}" active="{{2}}"></tabbar>

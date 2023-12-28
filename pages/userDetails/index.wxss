@@ -1,0 +1,28 @@
+page{
+  background-color: #f7f8fa;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+}
+.head{
+  background-color: white;
+  height: 30%;
+  padding:30px 16px ;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3%;
+}
+.head>image{
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+.title{
+  margin-left: 5%;
+}
+.title>text{
+  display: block;
+  color: rgb(114, 113, 113);
+  line-height: 1.5;
+}

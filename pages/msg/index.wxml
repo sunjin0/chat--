@@ -1,0 +1,40 @@
+<view class="container">
+  <view class="userNull" wx:if="{{userList.length===0}}">
+    <image src="https://img.yzcdn.cn/vant/empty-image-default.png" mode="heightFix" />
+    <text>没有新的消息</text>
+  </view>
+
+  <scroll-view class="info" wx:else>
+    <!-- 用户列表 -->
+    <van-swipe-cell id="swipe-cell" wx:for="{{userList}}" wx:key="id" data-type="{{item.type}}" data-id="{{item.userId}}" data-groupId="{{item.groupId}}" bind:click="onChat" right-width="{{ 130 }}" async-close bind:close="onClose">
+      <van-cell-group>
+        <van-cell class="cell" size="large" clickable>
+          <view slot="title">
+            <view class="title">
+              <van-image fit="cover" lazy-load style="margin-right: 10px;" round width="45" height="45" src="{{item.data.avatar}}" />
+              <view class="title-body">
+                <view class="van-cell-text">{{item.data.nickname}}</view>
+                <view style=" width: 100px;font-size: 13px;color: gray;white-space: nowrap;overflow: hidden;">{{item.lastMessage.payload.text}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="end">
+            <view class="time">
+              {{tools.formatTimestamp(item.lastMessage.timestamp)}}
+            </view>
+            <view class="tag" wx:if="{{item.unread>0}}">
+              {{item.unread}}
+            </view>
+          </view>
+        </van-cell>
+      </van-cell-group>
+      <view class="buttons" slot="right">
+        <view class="right" style="width:{{65}}px;background-color:#1989fa">置顶</view>
+        <view class="right" style="width:{{65}}px;">删除</view>
+      </view>
+    </van-swipe-cell>
+
+  </scroll-view>
+  <tabbar nums="{{nums}}" active="{{0}}"></tabbar>
+</view>
+<wxs module="tools" src="/tools.wxs"></wxs>
